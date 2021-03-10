@@ -2,6 +2,7 @@ import React, { useCallback, useRef, useState } from "react";
 import Webcam from "react-webcam";
 import styled from "styled-components";
 
+
 const videoConstraints = {
     facingMode: "user"
   };
@@ -16,31 +17,51 @@ export default function Camera() {
     }, [webcamRef, setImgSrc]);
 
     return (
-        <CameraContainer>
-            <Webcam
-                audio={false}
-                ref={webcamRef}
-                screenshotFormat="image/jpeg"
-                videoConstraints={videoConstraints}
-                height={600}
+        <Container>
+            <CameraContainer>
+                <Webcam
+                    audio={false}
+                    ref={webcamRef}
+                    screenshotFormat="image/jpeg"
+                    videoConstraints={videoConstraints}
+                    height={250}
+                    
 
-            />
+                />
+            </CameraContainer>
             
-            <button onClick={capture}>Capture photo</button>
+            
+            <Button onClick={capture}>Capture photo</Button>
             {imgSrc && (
                 <img
                     src={imgSrc}
                     alt="user"
-                    width={600}
+                    width={250}
                 />
             )}
-        </CameraContainer>
+        </Container>
     );
 }
 
+const Button = styled.button`
+    margin:10px;
+    background:#005596;
+    border-radius: 10px;
+    padding: 5px 10px;
+    color:white;
+`
+const Container = styled.div`
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+`
 const CameraContainer = styled.div`
     display:flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    max-width: 300px;
+    margin:10px auto;
+    
 `
