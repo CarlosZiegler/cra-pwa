@@ -1,27 +1,25 @@
 import React, { lazy, Suspense } from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Header from "./components/Header/Header";
+import * as S from "./styles"
 
 
-const About = lazy(() => import("./pages/About"));
-const Home = lazy(() => import("./pages/Home"));
+const Camera = lazy(() => import("./pages/Camera/Camera"));
+const Home = lazy(() => import("./pages/Home/Home"));
 
 function App() {
   return (
     <Router>
       <Suspense fallback={<div>Loading...</div>}>
-    <nav>
-      <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/about">About</Link>
-        </li>
-      </ul>
-    </nav>
+    <S.Navbar>
+      <S.Brand>
+        Lofino
+      </S.Brand>
+    </S.Navbar>
+    <Header />
     <Switch>
-      <Route path="/about">
-        <About />
+      <Route path="/camera">
+        <Camera />
       </Route>
       <Route path="/">
         <Home />
@@ -31,5 +29,6 @@ function App() {
   </Router>
   );
 }
+
 
 export default App;
