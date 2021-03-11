@@ -16,5 +16,27 @@
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "background_color": "#ffffff", 
+  "share_target": {
+    "action": "compose/tweet",
+    "enctype": "multipart/form-data",
+    "method": "POST",
+    "params": {
+      "title": "title",
+      "text": "text",
+      "url": "url",
+      "files": [
+        {
+          "name": "externalMedia",
+          "accept": [
+            "image/jpeg",
+            "image/png",
+            "image/gif",
+            "video/quicktime",
+            "video/mp4"
+          ]
+        }
+      ]
+    }
+  }
 }
