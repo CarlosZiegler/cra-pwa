@@ -4,6 +4,7 @@ import {
 	AiOutlineCamera,
 	AiOutlineUpload,
 } from "react-icons/ai";
+import { FiMap } from "react-icons/fi";
 import * as S from "./styles";
 
 export default function Header() {
@@ -27,6 +28,13 @@ export default function Header() {
 				<S.NavLink>
 					<S.MenuLink to="/file">
 						<AiOutlineUpload />
+					</S.MenuLink>
+				</S.NavLink>
+			</S.NavItem>
+			<S.NavItem>
+				<S.NavLink>
+					<S.MenuLink to="/map">
+						<FiMap />
 					</S.MenuLink>
 				</S.NavLink>
 			</S.NavItem>

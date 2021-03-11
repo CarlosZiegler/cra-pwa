@@ -1,7 +1,8 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Header from "./components/Header/Header";
 import FileUpload from "./pages/FileUpload/FileUpload";
+import { GoogleMap } from "./pages/Map/GoogleMap";
 import * as S from "./styles";
 
 const Camera = lazy(() => import("./pages/Camera/Camera"));
@@ -16,6 +17,9 @@ function App() {
 				</S.Navbar>
 				<Header />
 				<Switch>
+					<Route path="/map">
+						<GoogleMap />
+					</Route>
 					<Route path="/file">
 						<FileUpload />
 					</Route>
