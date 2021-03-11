@@ -1,8 +1,10 @@
 import axios from "axios";
-import { useState } from "react";
 import useSWR from "swr";
+import { AiFillCheckCircle, AiFillCloseCircle } from "react-icons/ai";
 import { register } from "../../serviceWorkerRegistration";
 import * as S from "../../styles";
+import React from "react";
+import { FeaturesContainer } from "./styles";
 
 const fetcher = (url: string) => axios.get(url);
 
@@ -36,9 +38,6 @@ export default function Home() {
 	if (error) return <div>failed to load</div>;
 	if (!data) return <div>loading...</div>;
 	const { name, birth_year, gender } = data.data;
-	Object.entries(features).map((element) =>
-		console.log(element[0] + ":" + element[1])
-	);
 
 	return (
 		<S.Container>
@@ -52,9 +51,14 @@ export default function Home() {
 
 				{features &&
 					Object.entries(features).map((element) => (
-						<p style={{ color: element[1] ? "green" : "red" }}>
-							{element[0]} : {String(element[1])}
-						</p>
+						<FeaturesContainer>
+							{element[0]}
+							{element[1] ? (
+								<AiFillCheckCircle style={{ color: "green" }} />
+							) : (
+								<AiFillCloseCircle style={{ color: "red" }} />
+							)}
+						</FeaturesContainer>
 					))}
 			</div>
 		</S.Container>
