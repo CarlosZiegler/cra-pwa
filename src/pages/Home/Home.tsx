@@ -50,8 +50,8 @@ export default function Home() {
 				<h2>Features PWA</h2>
 
 				{features &&
-					Object.entries(features).map((element) => (
-						<FeaturesContainer>
+					Object.entries(features).map((element, index) => (
+						<FeaturesContainer key={index}>
 							{element[0]}
 							{element[1] ? (
 								<AiFillCheckCircle style={{ color: "green" }} />
