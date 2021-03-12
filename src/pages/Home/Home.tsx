@@ -39,6 +39,16 @@ export default function Home() {
 	if (!data) return <div>loading...</div>;
 	const { name, birth_year, gender } = data.data;
 
+	document.addEventListener(
+		"message",
+		function (event: any) {
+			console.log("Received post message", event);
+
+			alert(event.data);
+		},
+		false
+	);
+
 	return (
 		<S.Container>
 			<h2>API</h2>
